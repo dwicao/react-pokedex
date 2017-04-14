@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as mainActions from '../actions/mainActions';
+import TopBar from './TopBar';
 
 class Home extends Component {
   render() {
     return (
       <div>
-        <h1>React Redux</h1>
+        <TopBar />
       </div>
     );
   }
