@@ -28,3 +28,18 @@
     width: 200px;
     text-align: center;
 }
+
+.card-detail-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.narcissus_17w311v {
+    cursor: initial;
+    width: 50% !important;
+}
+
+.narcissus_86uon7 {
+    display: none !important;
+}

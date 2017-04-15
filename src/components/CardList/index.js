@@ -9,9 +9,11 @@ import './index.css';
 
 class CardList extends Component {
     constructor(props) {
-        super();
+        super(props);
 
         this.section = 0;
+
+        this.loadMore = this.loadMore.bind(this);
     }
 
     loadMore() {
@@ -26,7 +28,7 @@ class CardList extends Component {
             <InfiniteScroll
                 className="card-list"
                 pageStart={0}
-                loadMore={() => this.loadMore()}
+                loadMore={this.loadMore}
                 loader={this.renderLoader()}
                 hasMore={true}
                 useWindow={true}

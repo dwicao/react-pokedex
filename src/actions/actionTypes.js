@@ -1,1 +1,2 @@
 export const ADD_POKEMON = 'ADD_POKEMON';
+export const ADD_POKEMON_DETAIL = 'ADD_POKEMON_DETAIL';
