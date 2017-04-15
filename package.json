@@ -34,6 +34,8 @@
   },
   "dependencies": {
     "react": "^15.4.0",
+    "react-addons-css-transition-group": "^15.5.2",
+    "react-addons-transition-group": "^15.5.2",
     "react-dom": "^15.4.0",
     "react-redux": "^4.4.6",
     "reactstrap": "^4.5.0",

@@ -12,11 +12,15 @@ describe('Home' , () => {
     expect(component).to.exist;
   });
 
+  it('has the appropriate className', () => {
+    expect(component).to.have.class('home-container');
+  });
+
   it('render TopBar component', () => {
     expect(component.find('div')).to.have.class('top-bar');
   });
 
-  it('has the appropriate className', () => {
-    expect(component).to.have.class('home-container');
+  it('render CardList component', () => {
+    expect(component.find('div')).to.have.class('card-list');
   });
 });
