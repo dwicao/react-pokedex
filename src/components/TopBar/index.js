@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import styles from './index_styles';
+import './index.css';
 
 class TopBar extends Component {
     render() {
         return (
-            <div style={styles.container}>
-                <span style={styles.title}>
+            <div className="top-bar">
+                <span className="top-bar-title">
                     Pokedex
                 </span>
             </div>

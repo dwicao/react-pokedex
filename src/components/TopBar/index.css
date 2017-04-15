@@ -1,0 +1,13 @@
+.top-bar {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    height: 50px;
+    width: 100%;
+    background-color: #779ddf;
+}
+
+.top-bar-title {
+    font-size: 20pt;
+    color: #d6e2fb;
+}
