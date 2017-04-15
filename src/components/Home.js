@@ -5,7 +5,7 @@ import * as mainActions from '../actions/mainActions';
 import TopBar from './TopBar';
 import CardList from './CardList';
 
-class Home extends Component {
+class Home extends Component {  
   render() {
     return (
       <div className="home-container">
@@ -16,16 +16,12 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    main: state.main
-  }
-}
+const mapStateToProps = (state) => ({
+  pokelist: state.pokelist
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(mainActions, dispatch)
-  }
-}
+const mapDispatchToProps = (dispatch) => ({
+  actions: bindActionCreators(mainActions, dispatch)
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

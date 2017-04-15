@@ -15,5 +15,10 @@
     margin: 8px;
     width: 150px;
     height: 150px;
-    background-color: #d6e2fb;
+}
+
+.card {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }

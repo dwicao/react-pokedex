@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import main from './mainReducer';
+import pokelist from './pokelistReducer';
 
 const rootReducer = combineReducers({
-  main
+  pokelist
 });
 
 export default rootReducer;

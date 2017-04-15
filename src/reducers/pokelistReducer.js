@@ -1,9 +1,9 @@
 import * as types from '../actions/actionTypes';
 
-export default function mainReducer(state = [], action) {
+export default function pokelistReducer(state = [], action) {
   switch(action.type) {
 
-    case types.ADD_BLAHBLAHBLAH:
+    case types.ADD_POKEMON:
       return [
         ...state,
         action.payload
