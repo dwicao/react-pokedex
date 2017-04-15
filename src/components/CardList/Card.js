@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Card = (props) => {
     const renderBackground = () => {
@@ -10,6 +11,11 @@ const Card = (props) => {
             <span>{props.name}</span>
         </div>
     );
+}
+
+Card.propTypes = {
+    name: PropTypes.string.isRequired,
+    pokemonId: PropTypes.string.isRequired,
 }
 
 export default Card;

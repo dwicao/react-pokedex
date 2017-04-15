@@ -22,3 +22,9 @@
     align-items: flex-end;
     justify-content: center;
 }
+
+.loader {
+    margin: 20px;
+    width: 200px;
+    text-align: center;
+}
