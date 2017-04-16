@@ -12,8 +12,8 @@ class TopBar extends Component {
     }
 
     filterPokemon(type) {
+        this.props.actions.clearPokemonListByType();
         this.props.actions.fetchPokemonByType(type);
-        
         this.props.actions.filterPokemonByType({
             isFilterByPokemonType: true,
             type,
@@ -21,10 +21,6 @@ class TopBar extends Component {
     }
 
     clearFilter() {
-        this.props.actions.clearPokemonList([]);
-
-        this.props.actions.fetchPokemon();
-
         this.props.actions.filterPokemonByType({
             isFilterByPokemonType: false,
         });

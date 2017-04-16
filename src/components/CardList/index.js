@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as mainActions from '../../actions/mainActions';
 import InfiniteScroll from 'react-infinite-scroller'
 import Card from './Card';
+import CardListByType from './CardListByType';
 import { getPokemonId } from '../../utils';
 import './index.css';
 
@@ -17,13 +18,15 @@ class CardList extends Component {
     }
 
     loadMore() {
-        if (this.section < 750 && this.props.pokefilter.isFilterByPokemonType === false) {
+        if (this.section < 750) {
             this.props.actions.fetchPokemon(this.section);
             this.section = this.section + 20;
         } 
     }
 
     render() {
+        if (this.props.pokefilter.isFilterByPokemonType) return <CardListByType/>;
+
         return (   
             <InfiniteScroll
                 className="card-list"
@@ -47,7 +50,7 @@ class CardList extends Component {
     renderCard() {
         const { pokelist, pokefilter } = this.props;
 
-        if (pokefilter.isFilterByPokemonType) {
+        /*if (pokefilter.isFilterByPokemonType) {
             return pokelist.map(({ pokemon }, index) => {
                 if (!pokemon) return this.renderLoader(index);
 
@@ -62,7 +65,7 @@ class CardList extends Component {
                     />
                 );
             });
-        }
+        }*/
         
         return pokelist.map((section, index) => {
             if (!section.map) return this.renderLoader(index);

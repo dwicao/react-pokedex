@@ -21,9 +21,9 @@ export const filterPokemonByType = payload => ({
   payload,
 });
 
-export const clearPokemonList = payload => ({
-  type: types.CLEAR_POKEMON_LIST,
-  payload,
+export const clearPokemonListByType = payload => ({
+  type: types.CLEAR_POKEMON_LIST_BY_TYPE,
+  payload: [],
 });
 
 export const fetchPokemon = offset => dispatch => {
