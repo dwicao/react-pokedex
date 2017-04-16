@@ -25,7 +25,7 @@ class CardList extends Component {
     }
 
     render() {
-        if (this.props.pokefilter.isFilterByPokemonType) return <CardListByType/>;
+        if (this.props.pokefilter.isFilterByPokemonType) return <CardListByType />;
 
         return (   
             <InfiniteScroll
@@ -49,41 +49,20 @@ class CardList extends Component {
 
     renderCard() {
         const { pokelist, pokefilter } = this.props;
-
-        /*if (pokefilter.isFilterByPokemonType) {
-            return pokelist.map(({ pokemon }, index) => {
-                if (!pokemon) return this.renderLoader(index);
-
-                const pokemonId = parseFloat(getPokemonId(pokemon.url));
-                if (pokemonId > 10000) return;
-
-                return (
-                    <Card key={index} 
-                        name={pokemon.name}
-                        url={pokemon.url}
-                        pokemonId={getPokemonId(pokemon.url)}
-                    />
-                );
-            });
-        }*/
         
-        return pokelist.map((section, index) => {
-            if (!section.map) return this.renderLoader(index);
+        return pokelist.map((section, index) => section.map(({ name, url }) => {
+            const pokemonId = parseFloat(getPokemonId(url));
 
-            return section.map(({ name, url }) => {
-                const pokemonId = parseFloat(getPokemonId(url));
+            if (pokemonId > 10000) return;
 
-                if (pokemonId > 10000) return;
-
-                return (
-                    <Card
-                        name={name}
-                        url={url}
-                        pokemonId={getPokemonId(url)}
-                    />
-                );
-            });
-        });
+            return (
+                <Card
+                    name={name}
+                    url={url}
+                    pokemonId={getPokemonId(url)}
+                />
+            );
+        }));
     }
 }
 

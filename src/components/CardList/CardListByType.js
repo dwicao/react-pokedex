@@ -7,8 +7,6 @@ import { getPokemonId } from '../../utils';
 
 class CardListByType extends Component {
     render() {
-        if (this.props.pokelisttype.length === 0) return this.renderLoader();
-
         return (
             <div className="card-list">
                 {this.renderCard()}
@@ -22,10 +20,9 @@ class CardListByType extends Component {
 
     renderCard() {
         const { pokelisttype } = this.props;
+        if (pokelisttype.length === 0) return this.renderLoader();
 
         return pokelisttype.map(({ pokemon }, index) => {
-            if (!pokemon) return this.renderLoader(index);
-
             const pokemonId = parseFloat(getPokemonId(pokemon.url));
             if (pokemonId > 10000) return;
 
@@ -41,9 +38,6 @@ class CardListByType extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  pokedetail: state.pokedetail,
-  pokelist: state.pokelist,
-  pokefilter: state.pokefilter,
   pokelisttype: state.pokelisttype,
 });
 

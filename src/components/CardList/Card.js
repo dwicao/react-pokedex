@@ -23,8 +23,7 @@ class Card extends Component {
 
     handleClose() {
         this.setState({ isShowingModal: false });
-        // reset pokedetail to empty object
-        this.props.actions.addPokemonDetail({});
+        this.props.actions.clearPokemonDetail();
     }
 
     renderBackground(color) {
@@ -55,7 +54,7 @@ class Card extends Component {
         const { name, pokemonId, pokedetail } = this.props;
 
         if (Object.keys(pokedetail).length === 0) {
-            return <div>Loading...</div>
+            return <div>Loading...</div>;
         }
 
         return (

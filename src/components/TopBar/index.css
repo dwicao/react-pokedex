@@ -1,6 +1,7 @@
 .top-bar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0 20px;
     height: 50px;
     background-color: #779ddf;
@@ -8,5 +9,20 @@
 
 .top-bar-title {
     font-size: 20pt;
+    color: #d6e2fb;
+}
+
+.select-type-pokemon {
+    width: 80px;
+    height: 30px;
+}
+
+.select-type-pokemon-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.filter-span {
+    margin-right: 10px;
     color: #d6e2fb;
 }

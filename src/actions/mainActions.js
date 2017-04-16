@@ -21,6 +21,11 @@ export const filterPokemonByType = payload => ({
   payload,
 });
 
+export const clearPokemonDetail = payload => ({
+  type: types.CLEAR_POKEMON_DETAIL,
+  payload: {},
+});
+
 export const clearPokemonListByType = payload => ({
   type: types.CLEAR_POKEMON_LIST_BY_TYPE,
   payload: [],
