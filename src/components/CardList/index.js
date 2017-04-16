@@ -17,7 +17,7 @@ class CardList extends Component {
     }
 
     loadMore() {
-        if (this.section < 750) {
+        if (this.section < 750 && this.props.pokefilter.isFilterByPokemonType === false) {
             this.props.actions.fetchPokemon(this.section);
             this.section = this.section + 20;
         } 
@@ -38,33 +38,55 @@ class CardList extends Component {
         );
     }
 
-    renderLoader() {
+    renderLoader(key) {
         if (this.section > 740) return;
 
-        return <div className="loader">Loading...</div>;
+        return <div key={key} className="loader">Loading...</div>;
     }
 
     renderCard() {
-        const { pokelist } = this.props;
+        const { pokelist, pokefilter } = this.props;
+
+        if (pokefilter.isFilterByPokemonType) {
+            return pokelist.map(({ pokemon }, index) => {
+                if (!pokemon) return this.renderLoader(index);
+
+                const pokemonId = parseFloat(getPokemonId(pokemon.url));
+                if (pokemonId > 10000) return;
+
+                return (
+                    <Card key={index} 
+                        name={pokemon.name}
+                        url={pokemon.url}
+                        pokemonId={getPokemonId(pokemon.url)}
+                    />
+                );
+            });
+        }
         
-        return pokelist.map(section => section.map(pokemon => {
-            const pokemonId = parseFloat(getPokemonId(pokemon.url));
+        return pokelist.map((section, index) => {
+            if (!section.map) return this.renderLoader(index);
 
-            if (pokemonId > 10000) return;
+            return section.map(({ name, url }) => {
+                const pokemonId = parseFloat(getPokemonId(url));
 
-            return (
-                <Card
-                    name={pokemon.name}
-                    url={pokemon.url}
-                    pokemonId={getPokemonId(pokemon.url)}
-                />
-            );
-        }));
+                if (pokemonId > 10000) return;
+
+                return (
+                    <Card
+                        name={name}
+                        url={url}
+                        pokemonId={getPokemonId(url)}
+                    />
+                );
+            });
+        });
     }
 }
 
 const mapStateToProps = (state) => ({
-  pokelist: state.pokelist
+  pokelist: state.pokelist,
+  pokefilter: state.pokefilter,
 });
 
 const mapDispatchToProps = (dispatch) => ({

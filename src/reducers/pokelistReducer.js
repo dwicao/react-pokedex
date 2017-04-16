@@ -9,6 +9,12 @@ export default function pokelistReducer(state = [], action) {
         action.payload
       ];
 
+    case types.ADD_POKEMON_BY_TYPE:
+      return action.payload;
+
+    case types.CLEAR_POKEMON_LIST:
+      return action.payload;
+
     default:
       return state;
   }
