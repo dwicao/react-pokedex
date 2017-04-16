@@ -88,7 +88,7 @@ class Card extends Component {
                         <span className="card-detail-group-title">Abilities</span>
                         {pokedetail.abilities.map(({ ability }, index) => (
                             <span key={index} className="card-detail-group-content">
-                                {ability.name}
+                                {removeDash(ability.name)}
                             </span>
                         ))}
                     </div>
