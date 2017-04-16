@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import * as mainActions from '../../actions/mainActions';
 import { ModalContainer, ModalDialog } from 'react-modal-dialog';
 import Spinner from 'react-spinkit';
+import { prettifyPokemonName, removeDash } from '../../utils';
 
 class Card extends Component {
     constructor(props) {
@@ -39,7 +40,7 @@ class Card extends Component {
                 onClick={() => this.handleClick(pokemonId)}
                 style={{ background: this.renderBackground('#d6e2fb') }}
             >
-                <span className="card-pokemon-name">{name}</span>
+                <span className="card-pokemon-name">{prettifyPokemonName(name)}</span>
                 {this.state.isShowingModal &&
                     <ModalContainer onClose={this.handleClose}>
                         <ModalDialog onClose={this.handleClose}>
@@ -67,7 +68,7 @@ class Card extends Component {
                         height: '100px',
                         background: this.renderBackground('white')
                     }}/>
-                    <h2 className="card-detail-name">{name}</h2>
+                    <h2 className="card-detail-name">{prettifyPokemonName(name)}</h2>
                 </div>
                 <div className="card-detail-info">
                     <div className="card-detail-types">
@@ -76,15 +77,15 @@ class Card extends Component {
                         ))}
                     </div>
                     <div className="card-detail-group">
-                        <span className="card-detail-group-title">profile</span>
+                        <span className="card-detail-group-title">Profile</span>
                         <div className="card-detail-group-content card-detail-basic">
-                            <span>height: {pokedetail.height}</span>
-                            <span>weight: {pokedetail.weight}</span>
-                            <span>base exp: {pokedetail.base_experience}</span>
+                            <span>height : {pokedetail.height}</span>
+                            <span>weight : {pokedetail.weight}</span>
+                            <span>base exp : {pokedetail.base_experience}</span>
                         </div>
                     </div>
                     <div className="card-detail-group">
-                        <span className="card-detail-group-title">abilities</span>
+                        <span className="card-detail-group-title">Abilities</span>
                         {pokedetail.abilities.map(({ ability }, index) => (
                             <span key={index} className="card-detail-group-content">
                                 {ability.name}
@@ -92,10 +93,10 @@ class Card extends Component {
                         ))}
                     </div>
                     <div className="card-detail-group">
-                        <span className="card-detail-group-title">base stats</span>
+                        <span className="card-detail-group-title">Base Stats</span>
                         {pokedetail.stats.map(({ base_stat, stat }, index) => (
                             <span key={index} className="card-detail-group-content">
-                                {stat.name}: {base_stat}
+                                {removeDash(stat.name)} : {base_stat}
                             </span>
                         ))}
                     </div>
@@ -106,8 +107,8 @@ class Card extends Component {
 }
 
 Card.propTypes = {
-    name: PropTypes.string.isRequired,
-    pokemonId: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    pokemonId: PropTypes.string,
 }
 
 const mapStateToProps = (state) => ({

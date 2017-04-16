@@ -1,4 +1,4 @@
-import { getPokemonId } from '../../src/utils';
+import { getPokemonId, prettifyPokemonName, removeDash } from '../../src/utils';
 import { expect } from 'chai';
 
 describe('utils', () => {
@@ -8,6 +8,24 @@ describe('utils', () => {
             const expected = '35';
 
             expect(getPokemonId(uri)).to.equal(expected);
+        });
+    });
+
+    describe('prettifyPokemonName', () => {
+        it('shows correct pokemon name', () => {
+            const name = 'bulbasaur-plant-rose';
+            const expected = 'Bulbasaur';
+
+            expect(prettifyPokemonName(name)).to.equal(expected);
+        })
+    });
+
+    describe('removeDash', () => {
+        it('should remove dash from sentences', () => {
+            const name = 'special-attack';
+            const expected = 'special attack';
+
+            expect(removeDash(name)).to.equal(expected);
         });
     });
 });
