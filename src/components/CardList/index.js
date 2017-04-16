@@ -5,6 +5,7 @@ import * as mainActions from '../../actions/mainActions';
 import InfiniteScroll from 'react-infinite-scroller'
 import Card from './Card';
 import CardListByType from './CardListByType';
+import Spinner from 'react-spinkit';
 import { getPokemonId } from '../../utils';
 import './index.css';
 
@@ -44,7 +45,7 @@ class CardList extends Component {
     renderLoader(key) {
         if (this.section > 740) return;
 
-        return <div key={key} className="loader">Loading...</div>;
+        return <Spinner key={key} spinnerName='three-bounce' noFadeIn/>;
     }
 
     renderCard() {

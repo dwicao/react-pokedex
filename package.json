@@ -44,6 +44,7 @@
     "react-infinite-scroller": "^1.0.7",
     "react-modal-dialog": "^4.0.7",
     "react-redux": "^4.4.6",
+    "react-spinkit": "^2.1.1",
     "reactstrap": "^4.5.0",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0"

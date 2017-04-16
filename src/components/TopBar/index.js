@@ -44,7 +44,7 @@ class TopBar extends Component {
                 <div className="select-type-pokemon-wrapper">
                     <span className="filter-span">Filter: </span>
                     <select className="select-type-pokemon" onChange={this.onChange}>
-                        <option value="show_all">Show All</option>
+                        <option value="show_all">All Types</option>
                         <option value="normal">Normal</option>
                         <option value="fighting">Fighting</option>
                         <option value="flying">Flying</option>

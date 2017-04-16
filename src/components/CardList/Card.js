@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as mainActions from '../../actions/mainActions';
-import {ModalContainer, ModalDialog} from 'react-modal-dialog';
+import { ModalContainer, ModalDialog } from 'react-modal-dialog';
+import Spinner from 'react-spinkit';
 
 class Card extends Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class Card extends Component {
                 onClick={() => this.handleClick(pokemonId)}
                 style={{ background: this.renderBackground('#d6e2fb') }}
             >
-                <span>{name}</span>
+                <span className="card-pokemon-name">{name}</span>
                 {this.state.isShowingModal &&
                     <ModalContainer onClose={this.handleClose}>
                         <ModalDialog onClose={this.handleClose}>
@@ -54,9 +55,9 @@ class Card extends Component {
         const { name, pokemonId, pokedetail } = this.props;
 
         if (Object.keys(pokedetail).length === 0) {
-            return <div>Loading...</div>;
+            return <Spinner spinnerName='pulse' noFadeIn/>;
         }
-console.log(pokedetail)
+
         return (
             <div className="card-detail">
                 <div className="card-detail-title">
@@ -75,11 +76,11 @@ console.log(pokedetail)
                         ))}
                     </div>
                     <div className="card-detail-group">
-                        <span className="card-detail-group-title">details</span>
+                        <span className="card-detail-group-title">profile</span>
                         <div className="card-detail-group-content card-detail-basic">
-                            <span>base exp: {pokedetail.base_experience}</span>
                             <span>height: {pokedetail.height}</span>
                             <span>weight: {pokedetail.weight}</span>
+                            <span>base exp: {pokedetail.base_experience}</span>
                         </div>
                     </div>
                     <div className="card-detail-group">

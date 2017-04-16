@@ -21,9 +21,17 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    border-radius: 5px;
 }
 
-.loader {
+.card:hover {
+    cursor: pointer;
+    -moz-box-shadow:    0 0 20px #1e71e3;
+    -webkit-box-shadow: 0 0 20px #1e71e3;
+    box-shadow:         0 0 20px #1e71e3; 
+}
+
+.spinner {
     margin: 20px;
     width: 200px;
     text-align: center;
@@ -37,10 +45,6 @@
 
 .narcissus_17w311v {
     cursor: initial;
-}
-
-.narcissus_86uon7 {
-    display: none !important;
 }
 
 .card-detail-info {
@@ -80,4 +84,8 @@
 .card-detail-basic {
     display: flex;
     flex-direction: column;
+}
+
+.card-pokemon-name {
+    margin: 10px;
 }

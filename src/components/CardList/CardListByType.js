@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as mainActions from '../../actions/mainActions';
 import Card from './Card';
 import { getPokemonId } from '../../utils';
+import Spinner from 'react-spinkit';
 
 class CardListByType extends Component {
     render() {
@@ -15,7 +16,7 @@ class CardListByType extends Component {
     }
 
     renderLoader(key) {
-        return <div key={key} className="loader">Loading...</div>;
+        return <Spinner key={key} spinnerName='three-bounce' noFadeIn/>;
     }
 
     renderCard() {

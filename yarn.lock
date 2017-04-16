@@ -3262,6 +3262,13 @@ react-redux@^4.4.6:
     loose-envify "^1.1.0"
     prop-types "^15.5.4"
 
+react-spinkit@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-spinkit/-/react-spinkit-2.1.1.tgz#a666f02367147de8151c1f7671453d56cef4650f"
+  dependencies:
+    classnames "^2.2.3"
+    object-assign "^4.1.0"
+
 react@^15.4.0:
   version "15.5.4"
   resolved "https://registry.yarnpkg.com/react/-/react-15.5.4.tgz#fa83eb01506ab237cdc1c8c3b1cea8de012bf047"
