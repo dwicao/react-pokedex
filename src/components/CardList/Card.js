@@ -56,19 +56,49 @@ class Card extends Component {
         if (Object.keys(pokedetail).length === 0) {
             return <div>Loading...</div>;
         }
-
+console.log(pokedetail)
         return (
             <div className="card-detail">
                 <div className="card-detail-title">
+                    <span className="card-detail-number">#{pokemonId}</span>
                     <div style={{
                         width: '100px',
                         height: '100px',
                         background: this.renderBackground('white')
                     }}/>
-                    <h1>{name}</h1>
-                    <span>#{pokemonId}</span>
+                    <h2 className="card-detail-name">{name}</h2>
                 </div>
-                <span>base_experience: {pokedetail.base_experience}</span>
+                <div className="card-detail-info">
+                    <div className="card-detail-types">
+                        {pokedetail.types.map(({ type }, index) => (
+                            <span key={index}>{type.name}</span>
+                        ))}
+                    </div>
+                    <div className="card-detail-group">
+                        <span className="card-detail-group-title">details</span>
+                        <div className="card-detail-group-content card-detail-basic">
+                            <span>base exp: {pokedetail.base_experience}</span>
+                            <span>height: {pokedetail.height}</span>
+                            <span>weight: {pokedetail.weight}</span>
+                        </div>
+                    </div>
+                    <div className="card-detail-group">
+                        <span className="card-detail-group-title">abilities</span>
+                        {pokedetail.abilities.map(({ ability }, index) => (
+                            <span key={index} className="card-detail-group-content">
+                                {ability.name}
+                            </span>
+                        ))}
+                    </div>
+                    <div className="card-detail-group">
+                        <span className="card-detail-group-title">base stats</span>
+                        {pokedetail.stats.map(({ base_stat, stat }, index) => (
+                            <span key={index} className="card-detail-group-content">
+                                {stat.name}: {base_stat}
+                            </span>
+                        ))}
+                    </div>
+                </div>
             </div>
         );
     }

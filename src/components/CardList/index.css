@@ -31,15 +31,53 @@
 
 .card-detail-title {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
 }
 
 .narcissus_17w311v {
     cursor: initial;
-    width: 50% !important;
 }
 
 .narcissus_86uon7 {
     display: none !important;
+}
+
+.card-detail-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-detail-number {
+    font-weight: bold;
+}
+
+.card-detail-name {
+    margin: 0 auto;
+}
+
+.card-detail-types {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.card-detail-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.card-detail-group-title {
+    font-weight: bold;
+}
+
+.card-detail-group-content {
+    margin-left: 10px;
+}
+
+.card-detail-basic {
+    display: flex;
+    flex-direction: column;
 }
