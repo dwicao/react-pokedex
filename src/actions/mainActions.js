@@ -32,8 +32,8 @@ export const clearPokemonListByType = payload => ({
 });
 
 export const fetchPokemon = offset => dispatch => {
-  const noOffset = 'http://pokeapi.salestock.net:8000/api/v2/pokemon-form/';
-  const withOffset = `http://pokeapi.salestock.net:8000/api/v2/pokemon-form/?offset=${offset}`;
+  const noOffset = 'http://pokeapi.co/api/v2/pokemon-form/';
+  const withOffset = `http://pokeapi.co/api/v2/pokemon-form/?offset=${offset}`;
   const uri = offset ? withOffset : noOffset;
 
   axios.get(uri)
@@ -41,14 +41,14 @@ export const fetchPokemon = offset => dispatch => {
 };
 
 export const fetchPokemonDetail = pokemonId => dispatch => {
-  const uri = `http://pokeapi.salestock.net:8000/api/v2/pokemon/${pokemonId}/`;
+  const uri = `http://pokeapi.co/api/v2/pokemon/${pokemonId}/`;
 
   axios.get(uri)
     .then(({ data }) => dispatch(addPokemonDetail(data)));
 }
 
 export const fetchPokemonByType = type => dispatch => {
-  const uri = `http://pokeapi.salestock.net:8000/api/v2/type/${type}/`;
+  const uri = `http://pokeapi.co/api/v2/type/${type}/`;
 
   axios.get(uri)
     .then(({ data }) => dispatch(addPokemonByType(data.pokemon)));
